@@ -1,9 +1,8 @@
 const express = require('express');
 const router = express.Router();
-const campus = require('./campus.js');
-const student = require('./student.js');
 
-router.use('/campuses', campus);
-router.use('/students', student);
+router.use('/test', (req, res, next) => {
+  res.send(`<h1>Hello World!</h1>`);
+});
 
 module.exports = router;

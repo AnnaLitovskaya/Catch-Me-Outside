@@ -1,5 +1,8 @@
 module.exports = {
   entry: ['./client/index.js'],
+  resolve: {
+    extensions: ['.js', '.jsx'],
+  },
   module: {
     rules: [
       {
