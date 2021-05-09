@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { inputAddress } from '../store/storeComponents/inputAddress';
 
 class AddressInput extends Component {
   constructor() {
@@ -21,7 +23,7 @@ class AddressInput extends Component {
   onSubmit(evt) {
     evt.preventDefault();
     const wholeAddress = `${this.state.address}, ${this.state.city}`;
-    this.setState({ wholeAddress });
+    this.props.inputAddress(wholeAddress);
   }
 
   render() {
@@ -55,4 +57,10 @@ class AddressInput extends Component {
   }
 }
 
-export default AddressInput;
+const mapDispatchToProps = (dispatch) => {
+  return {
+    inputAddress: (address) => dispatch(inputAddress(address)),
+  };
+};
+
+export default connect(null, mapDispatchToProps)(AddressInput);
