@@ -4,7 +4,7 @@ const INPUT_ADDRESS = 'INPUT_ADDRESS';
 
 const inputAddress = (address) => {
   return async (dispatch) => {
-    let coordinates = { latitude: '', longitude: '' };
+    let latitude, longitude;
 
     const options = {
       method: 'GET',
@@ -19,19 +19,18 @@ const inputAddress = (address) => {
       },
     };
 
-    axios
-      .request(options)
-      .then(function (response) {
-        coordinates.latitude = response.data.results[0].geometry.location.lat;
-        coordinates.longitude = response.data.results[0].geometry.location.lng;
-      })
-      .catch(function (error) {
-        console.error(error);
-      });
+    try {
+      const response = await axios.request(options);
+      latitude = response.data.results[0].geometry.location.lat;
+      longitude = response.data.results[0].geometry.location.lng;
+    } catch (ex) {
+      console.error(ex);
+    }
 
     address = {
       address,
-      coordinates,
+      latitude,
+      longitude,
     };
 
     dispatch(_inputAddress(address));

@@ -1,32 +1,80 @@
 import React, { Component } from 'react';
-import { Map, Marker, GoogleApiWrapper } from 'google-maps-react';
-import Iframe from 'react-iframe';
+import { Circle, Map, InfoWindow, GoogleApiWrapper } from 'google-maps-react';
+import { connect } from 'react-redux';
+import { compose } from 'redux';
 
 class EmbeddedMap extends Component {
-  constructor() {
-    super();
-  }
-  render() {
-    const style = {
-      width: '500px',
-      height: '500px',
+  constructor(props) {
+    super(props);
+    this.state = {
+      lat: '',
+      lng: '',
     };
+  }
+
+  componentDidUpdate(prevProps) {
+    if (prevProps.latitude !== this.props.latitude) {
+      this.setState({
+        lat: this.props.latitude,
+        lng: this.props.longitude,
+      });
+    }
+  }
+
+  render() {
+    console.log(this.props);
+
+    const coords = this.state.lat
+      ? { lat: this.state.lat, lng: this.state.lng }
+      : {
+          lat: 40.854885,
+          lng: -88.081807,
+        };
     return (
       <div>
-        <Map
-          google={this.props.google}
-          zoom={12}
-          initialCenter={{
-            lat: 35.5496939,
-            lng: -120.7060049,
-          }}
-          style={style}
-        />
+        {this.state.lat ? (
+          <Map
+            initialCenter={coords}
+            google={this.props.google}
+            style={{ width: 500, height: 500, position: 'relative' }}
+            zoom={15}
+          >
+            <Marker
+              title={'The marker`s title will appear as a tooltip.'}
+              name={'SOMA'}
+              position={{ lat: 37.778519, lng: -122.40564 }}
+            />
+            <Circle
+              radius={500}
+              center={coords}
+              // onMouseover={() => console.log('mouseover')}
+              // onClick={() => console.log('click')}
+              // onMouseout={() => console.log('mouseout')}
+              strokeColor="transparent"
+              strokeOpacity={0}
+              strokeWeight={5}
+              fillColor="#FF0000"
+              fillOpacity={0.2}
+            />
+          </Map>
+        ) : (
+          ''
+        )}
       </div>
     );
   }
 }
 
-export default GoogleApiWrapper({
-  apiKey: 'AIzaSyDCSoSKRB1ku-YbJ5UH7dRCYy74PEK3ZSU',
-})(EmbeddedMap);
+const mapStateToProps = (state) => ({
+  latitude: state.address.latitude,
+  longitude: state.address.longitude,
+});
+
+const enhance = compose(
+  connect(mapStateToProps),
+  GoogleApiWrapper(() => ({
+    apiKey: 'AIzaSyDCSoSKRB1ku-YbJ5UH7dRCYy74PEK3ZSU',
+  }))
+);
+
+export default enhance(EmbeddedMap);

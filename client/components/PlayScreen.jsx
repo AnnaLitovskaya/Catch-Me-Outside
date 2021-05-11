@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import AddressInput from './AddressInput';
 import EmbeddedMap from './EmbeddedMap';
+import StaticImage from './StaticImage';
 
 class PlayScreen extends Component {
   constructor() {
@@ -10,6 +11,7 @@ class PlayScreen extends Component {
     return (
       <div>
         <AddressInput />
+        <StaticImage />
         <EmbeddedMap />
       </div>
     );
