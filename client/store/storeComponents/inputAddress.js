@@ -1,8 +1,9 @@
 import axios from 'axios';
 
 const INPUT_ADDRESS = 'INPUT_ADDRESS';
+const INPUT_PLAYTYPE = 'INPUT_PLAYTYPE';
 
-const inputAddress = (address) => {
+const inputAddress = (address, playType) => {
   return async (dispatch) => {
     let latitude, longitude;
 
@@ -34,6 +35,7 @@ const inputAddress = (address) => {
     };
 
     dispatch(_inputAddress(address));
+    dispatch(_inputPlayType(playType));
   };
 };
 
@@ -44,4 +46,11 @@ const _inputAddress = (address) => {
   };
 };
 
-export { inputAddress, INPUT_ADDRESS };
+const _inputPlayType = (playType) => {
+  return {
+    type: INPUT_PLAYTYPE,
+    playType,
+  };
+};
+
+export { inputAddress, INPUT_ADDRESS, INPUT_PLAYTYPE };

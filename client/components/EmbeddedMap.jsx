@@ -22,8 +22,6 @@ class EmbeddedMap extends Component {
   }
 
   render() {
-    console.log(this.props);
-
     const coords = this.state.lat
       ? { lat: this.state.lat, lng: this.state.lng }
       : {
@@ -39,11 +37,6 @@ class EmbeddedMap extends Component {
             style={{ width: 500, height: 500, position: 'relative' }}
             zoom={15}
           >
-            <Marker
-              title={'The marker`s title will appear as a tooltip.'}
-              name={'SOMA'}
-              position={{ lat: 37.778519, lng: -122.40564 }}
-            />
             <Circle
               radius={500}
               center={coords}
