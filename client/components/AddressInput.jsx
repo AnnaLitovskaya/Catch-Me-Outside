@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { inputAddress } from '../store/storeComponents/inputAddress';
+import Stopwatch from './Stopwatch';
 
 class AddressInput extends Component {
   constructor() {
@@ -86,7 +87,7 @@ class AddressInput extends Component {
         </form>
       </div>
     ) : (
-      ''
+      <Stopwatch />
     );
   }
 }
