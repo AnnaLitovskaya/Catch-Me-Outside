@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import AddressInput from './AddressInput';
-import EmbeddedMap from './EmbeddedMap';
 
 class Playscreen extends Component {
   constructor() {
@@ -10,7 +9,6 @@ class Playscreen extends Component {
     return (
       <div>
         <AddressInput />
-        <EmbeddedMap />
       </div>
     );
   }

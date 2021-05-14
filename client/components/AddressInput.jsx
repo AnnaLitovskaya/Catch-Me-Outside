@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { inputAddress } from '../store/storeComponents/inputAddress';
 import StaticImage from './StaticImage';
+import { TextField } from '@material-ui/core';
+import EmbeddedMap from './EmbeddedMap';
 
 class AddressInput extends Component {
   constructor(props) {
@@ -61,22 +63,31 @@ class AddressInput extends Component {
     const { address, city } = this.state;
     const { onSubmit, onChange } = this;
     return this.state.wholeAddress === '' ? (
-      <div>
-        <form type="submit">
-          <input
-            type="text"
-            name="address"
-            value={address}
-            placeholder="Address"
-            onChange={onChange}
-          />
-          <input
-            type="text"
-            name="city"
-            value={city}
-            placeholder="City"
-            onChange={onChange}
-          />
+      <div id="container">
+        <img src="Logo.png" />
+        <form id="input-form" type="submit">
+          <div>
+            <TextField
+              type="text"
+              name="address"
+              value={address}
+              placeholder="    Address"
+              onChange={onChange}
+              id="outlined-basic"
+              // label="    Street Address"
+              variant="outlined"
+            />
+            <TextField
+              type="text"
+              name="city"
+              value={city}
+              placeholder="   City"
+              onChange={onChange}
+              id="outlined-basic"
+              // label="    City"
+              variant="outlined"
+            />
+          </div>
           <div>
             <input
               type="radio"
@@ -108,7 +119,10 @@ class AddressInput extends Component {
         </form>
       </div>
     ) : (
-      <StaticImage demo={this.state.demo} />
+      <div>
+        <StaticImage demo={this.state.demo} />
+        <EmbeddedMap />
+      </div>
     );
   }
 }

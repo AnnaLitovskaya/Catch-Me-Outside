@@ -37,8 +37,8 @@ class MultiPlayscreen extends Component {
         <button onClick={this.joinRoom} type="button">
           Join Room
         </button>
-        {/* <AddressInput finished={this.state.finished} won={this.state.won} />
-        <EmbeddedMap /> */}
+        <AddressInput finished={this.state.finished} won={this.state.won} />
+        <EmbeddedMap />
       </div>
     );
   }
