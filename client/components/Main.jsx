@@ -20,10 +20,14 @@ class Main extends Component {
 
 const Home = () => {
   return (
-    <div className="center">
-      <img src="https://blog.flamingtext.com/blog/2021/05/14/flamingtext_com_1621001039_167163475.png" />
-      <Link to="/play">Play</Link>
-      <Link to="/multiplayscreen">Multiplayer</Link>
+    <div className="center" id="home">
+      <img src="Logo.png" />
+      <br />
+      <br />
+      <Link to="/play">
+        <button className="big-button">Play</button>
+      </Link>
+      {/* <Link to="/multiplayscreen">Multiplayer</Link> */}
     </div>
   );
 };
