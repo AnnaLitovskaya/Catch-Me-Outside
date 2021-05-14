@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { HashRouter as Router, Route, Switch, Link } from 'react-router-dom';
-import PlayScreen from './PlayScreen';
+import Playscreen from './Playscreen';
+import MultiPlayscreen from './MutliPlayscreen';
 
 class Main extends Component {
   render() {
@@ -8,7 +9,8 @@ class Main extends Component {
       <Router>
         <Switch>
           <Route path="/" component={Home} exact />
-          <Route path="/play" component={PlayScreen} exact />
+          <Route path="/play" component={Playscreen} exact />
+          {/* <Route path="/multiplayscreen" component={MultiPlayscreen} /> */}
           <Route path="*" component={Oops} />
         </Switch>
       </Router>
@@ -19,8 +21,9 @@ class Main extends Component {
 const Home = () => {
   return (
     <div className="center">
-      <h1>Catch Me Outside</h1>
+      <img src="https://blog.flamingtext.com/blog/2021/05/14/flamingtext_com_1621001039_167163475.png" />
       <Link to="/play">Play</Link>
+      <Link to="/multiplayscreen">Multiplayer</Link>
     </div>
   );
 };

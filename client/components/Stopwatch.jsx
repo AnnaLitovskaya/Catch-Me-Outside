@@ -64,6 +64,7 @@ class Stopwatch extends React.Component {
   render() {
     return (
       <div className={'stopwatch'}>
+        {!this.state.running && <h1>You Win!</h1>}
         {this.state.running === false && (
           <button onClick={this.start}>START</button>
         )}

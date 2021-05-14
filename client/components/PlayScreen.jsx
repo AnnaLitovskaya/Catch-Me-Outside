@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import AddressInput from './AddressInput';
 import EmbeddedMap from './EmbeddedMap';
 
-class PlayScreen extends Component {
+class Playscreen extends Component {
   constructor() {
     super();
   }
@@ -16,4 +16,4 @@ class PlayScreen extends Component {
   }
 }
 
-export default PlayScreen;
+export default Playscreen;

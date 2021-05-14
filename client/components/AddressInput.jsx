@@ -4,8 +4,8 @@ import { inputAddress } from '../store/storeComponents/inputAddress';
 import StaticImage from './StaticImage';
 
 class AddressInput extends Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
       wholeAddress: '',
       address: '',
@@ -53,6 +53,7 @@ class AddressInput extends Component {
         '5 Hanover Square, New York',
         this.state.playType
       );
+      this.setState({ wholeAddress: '5 Hanover Square, New York' });
     }
   }
 
