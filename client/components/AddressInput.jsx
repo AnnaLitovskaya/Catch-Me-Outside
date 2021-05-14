@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { inputAddress } from '../store/storeComponents/inputAddress';
+import StaticImage from './StaticImage';
 
 class AddressInput extends Component {
   constructor() {
@@ -10,6 +11,7 @@ class AddressInput extends Component {
       address: '',
       city: '',
       playType: 500,
+      demo: false,
     };
     this.onSubmit = this.onSubmit.bind(this);
     this.onChange = this.onChange.bind(this);
@@ -20,10 +22,17 @@ class AddressInput extends Component {
       if (evt.target.value === 'normal') {
         this.setState({
           playType: 500,
+          demo: false,
         });
       } else if (evt.target.value === 'easy') {
         this.setState({
           playType: 250,
+          demo: false,
+        });
+      } else {
+        this.setState({
+          playType: 250,
+          demo: true,
         });
       }
     } else {
@@ -37,7 +46,14 @@ class AddressInput extends Component {
     evt.preventDefault();
     const wholeAddress = `${this.state.address}, ${this.state.city}`;
     this.setState({ wholeAddress });
-    this.props.inputAddress(wholeAddress, this.state.playType);
+    if (this.state.demo === false) {
+      this.props.inputAddress(wholeAddress, this.state.playType);
+    } else {
+      this.props.inputAddress(
+        '5 Hanover Square, New York',
+        this.state.playType
+      );
+    }
   }
 
   render() {
@@ -91,7 +107,7 @@ class AddressInput extends Component {
         </form>
       </div>
     ) : (
-      ''
+      <StaticImage demo={this.state.demo} />
     );
   }
 }

@@ -4,8 +4,8 @@ import { randomCirclePoint } from 'random-location';
 import Stopwatch from './Stopwatch';
 
 class StaticImage extends React.Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.reRender = this.reRender.bind(this);
   }
 
@@ -18,17 +18,20 @@ class StaticImage extends React.Component {
       { latitude: this.props.lat, longitude: this.props.lng },
       250
     );
+    const randomHeading = Math.floor(Math.random() * 360);
     const { reRender } = this;
     return this.props.lat ? (
       <div>
-        <div>
-          <button type="button" onClick={reRender}>
-            Try Again
-          </button>
+        {this.props.demo === false ? (
           <img
-            src={`https://maps.googleapis.com/maps/api/streetview?size=400x400&location=${newCoords.latitude},${newCoords.longitude}&fov=100&heading=20&pitch=0&key=${process.env.REACT_APP_GOOGLE_KEY}`}
+            src={`https://maps.googleapis.com/maps/api/streetview?size=400x400&location=${newCoords.latitude},${newCoords.longitude}&fov=100&heading=${randomHeading}&pitch=0&key=${process.env.REACT_APP_GOOGLE_KEY}`}
           />
-        </div>
+        ) : (
+          <img
+            src={`https://maps.googleapis.com/maps/api/streetview?size=400x400&location=40.7053329,-74.0090676&fov=100&heading=200&pitch=20&key=${process.env.REACT_APP_GOOGLE_KEY}`}
+          />
+        )}
+
         <Stopwatch reRender={reRender} />
       </div>
     ) : (
