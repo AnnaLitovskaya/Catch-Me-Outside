@@ -24,7 +24,7 @@ class StaticImage extends React.Component {
           Try Again
         </button>
         <img
-          src={`https://maps.googleapis.com/maps/api/streetview?size=400x400&location=${newCoords.latitude},${newCoords.longitude}&fov=100&heading=20&pitch=0&key=AIzaSyDCSoSKRB1ku-YbJ5UH7dRCYy74PEK3ZSU`}
+          src={`https://maps.googleapis.com/maps/api/streetview?size=400x400&location=${newCoords.latitude},${newCoords.longitude}&fov=100&heading=20&pitch=0&key=${process.env.REACT_APP_GOOGLE_KEY}`}
         />
       </div>
     ) : (

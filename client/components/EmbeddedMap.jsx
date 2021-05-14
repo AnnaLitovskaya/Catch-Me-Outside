@@ -66,7 +66,7 @@ const mapStateToProps = (state) => ({
 const enhance = compose(
   connect(mapStateToProps),
   GoogleApiWrapper(() => ({
-    apiKey: 'AIzaSyDCSoSKRB1ku-YbJ5UH7dRCYy74PEK3ZSU',
+    apiKey: process.env.REACT_APP_GOOGLE_KEY,
   }))
 );
 
