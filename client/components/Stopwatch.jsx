@@ -49,6 +49,7 @@ class Stopwatch extends React.Component {
   };
 
   reset = () => {
+    this.props.reRender();
     this.setState({
       currentTimeMs: 0,
       currentTimeSec: 0,
@@ -63,14 +64,13 @@ class Stopwatch extends React.Component {
   render() {
     return (
       <div className={'stopwatch'}>
-        <h2 ref="header">Stopwatch</h2>
         {this.state.running === false && (
           <button onClick={this.start}>START</button>
         )}
         {this.state.running === true && (
           <button onClick={this.stop}>STOP</button>
         )}
-        <button onClick={this.reset}>RESET</button>
+        <button onClick={this.reset}>NEW PHOTO</button>
         <StopwatchDisplay
           ref="display"
           {...this.state}

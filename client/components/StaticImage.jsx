@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { randomCirclePoint } from 'random-location';
+import Stopwatch from './Stopwatch';
 
 class StaticImage extends React.Component {
   constructor() {
@@ -20,12 +21,15 @@ class StaticImage extends React.Component {
     const { reRender } = this;
     return this.props.lat ? (
       <div>
-        <button type="button" onClick={reRender}>
-          Try Again
-        </button>
-        <img
-          src={`https://maps.googleapis.com/maps/api/streetview?size=400x400&location=${newCoords.latitude},${newCoords.longitude}&fov=100&heading=20&pitch=0&key=${process.env.REACT_APP_GOOGLE_KEY}`}
-        />
+        <div>
+          <button type="button" onClick={reRender}>
+            Try Again
+          </button>
+          <img
+            src={`https://maps.googleapis.com/maps/api/streetview?size=400x400&location=${newCoords.latitude},${newCoords.longitude}&fov=100&heading=20&pitch=0&key=${process.env.REACT_APP_GOOGLE_KEY}`}
+          />
+        </div>
+        <Stopwatch reRender={reRender} />
       </div>
     ) : (
       ''

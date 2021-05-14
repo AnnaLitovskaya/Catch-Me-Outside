@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { inputAddress } from '../store/storeComponents/inputAddress';
-import Stopwatch from './Stopwatch';
 
 class AddressInput extends Component {
   constructor() {
@@ -10,7 +9,7 @@ class AddressInput extends Component {
       wholeAddress: '',
       address: '',
       city: '',
-      playType: '',
+      playType: 500,
     };
     this.onSubmit = this.onSubmit.bind(this);
     this.onChange = this.onChange.bind(this);
@@ -19,14 +18,19 @@ class AddressInput extends Component {
   onChange(evt) {
     if (evt.target.name === 'playType') {
       if (evt.target.value === 'normal') {
-        evt.target.value = 500;
-      } else {
-        evt.target.value = 250;
+        this.setState({
+          playType: 500,
+        });
+      } else if (evt.target.value === 'easy') {
+        this.setState({
+          playType: 250,
+        });
       }
+    } else {
+      this.setState({
+        [evt.target.name]: evt.target.value,
+      });
     }
-    this.setState({
-      [evt.target.name]: evt.target.value,
-    });
   }
 
   onSubmit(evt) {
@@ -43,7 +47,6 @@ class AddressInput extends Component {
       <div>
         <form type="submit">
           <input
-            required
             type="text"
             name="address"
             value={address}
@@ -51,7 +54,6 @@ class AddressInput extends Component {
             onChange={onChange}
           />
           <input
-            required
             type="text"
             name="city"
             value={city}
@@ -67,6 +69,7 @@ class AddressInput extends Component {
             />
             Easy
             <input
+              required
               type="radio"
               value="normal"
               name="playType"
@@ -74,6 +77,7 @@ class AddressInput extends Component {
             />
             Normal
             <input
+              required
               type="radio"
               value="demo"
               name="playType"
@@ -87,7 +91,7 @@ class AddressInput extends Component {
         </form>
       </div>
     ) : (
-      <Stopwatch />
+      ''
     );
   }
 }

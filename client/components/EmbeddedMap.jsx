@@ -38,7 +38,7 @@ class EmbeddedMap extends Component {
             zoom={15}
           >
             <Circle
-              radius={500}
+              radius={this.props.radius}
               center={coords}
               // onMouseover={() => console.log('mouseover')}
               // onClick={() => console.log('click')}
@@ -61,6 +61,7 @@ class EmbeddedMap extends Component {
 const mapStateToProps = (state) => ({
   latitude: state.address.latitude,
   longitude: state.address.longitude,
+  radius: state.playType,
 });
 
 const enhance = compose(
