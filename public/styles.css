@@ -10,6 +10,7 @@
   padding-top: 1rem;
   box-shadow: 0 0 0 2px var(--colorShadeB), 0 0.5em 0 0 var(--colorShadeC);
   transform: translate3d(0, 0.5em, -1em);
+  margin-top: 15rem;
 }
 
 body {
@@ -33,9 +34,6 @@ body {
   font-family: 'OpenSans', sans-serif;
   font-size: 1rem;
   line-height: 2;
-  display: flex;
-  align-items: center;
-  justify-content: center;
   margin: 0;
   min-height: 100vh;
 }
@@ -154,7 +152,7 @@ button.big-button.small:active::before {
   background-color: rgba(187, 232, 211, 0.7);
   margin-left: 15px;
   margin-right: 15px;
-  margin-bottom: 15px;
+  margin-bottom: 2px;
 }
 
 /* //radio --------------------------------------------------------------------------------- */
@@ -190,3 +188,37 @@ label + input[type='radio'] + label {
 }
 
 @import url('https://fonts.googleapis.com/css?family=Roboto');
+
+/* // game page ---------------------------------------------------------------------------- */
+
+#game-screen {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  border: 5px solid rgb(106, 163, 137);
+  border-radius: 50px;
+  box-shadow: 0 0 0 2px var(--colorShadeB), 0 0.5em 0 0 var(--colorShadeC);
+  transform: translate3d(0, 0.5em, -1em);
+  position: fixed;
+  width: 80%;
+  height: 80%;
+  left: 8%;
+  top: 8%;
+  background-color: rgba(246, 241, 209, 0.9);
+}
+
+#game-board {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#static {
+  position: absolute;
+  right: 53%;
+}
+
+#maps > div:nth-child(2) > div > div:nth-child(1) > div {
+  position: absolute;
+  left: 53%;
+}

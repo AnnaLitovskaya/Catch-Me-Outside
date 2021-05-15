@@ -12,16 +12,24 @@ class EmbeddedMap extends Component {
     };
   }
 
-  componentDidUpdate(prevProps) {
-    if (prevProps.latitude !== this.props.latitude) {
-      this.setState({
-        lat: this.props.latitude,
-        lng: this.props.longitude,
-      });
-    }
+  // componentDidUpdate(prevProps) {
+  //   if (prevProps.latitude !== this.props.latitude) {
+  //     this.setState({
+  //       lat: this.props.latitude,
+  //       lng: this.props.longitude,
+  //     });
+  //   }
+  // }
+
+  componentDidMount() {
+    this.setState({
+      lat: this.props.latitude,
+      lng: this.props.longitude,
+    });
   }
 
   render() {
+    console.log(this.state);
     const coords = this.state.lat
       ? { lat: this.state.lat, lng: this.state.lng }
       : {
@@ -34,7 +42,7 @@ class EmbeddedMap extends Component {
           <Map
             initialCenter={coords}
             google={this.props.google}
-            style={{ width: 500, height: 500, position: 'relative' }}
+            style={{ width: 500, height: 500 }}
             zoom={16}
           >
             <Circle

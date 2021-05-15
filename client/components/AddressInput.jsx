@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { inputAddress } from '../store/storeComponents/inputAddress';
 import StaticImage from './StaticImage';
 import { TextField } from '@material-ui/core';
-import EmbeddedMap from './EmbeddedMap';
+// import EmbeddedMap from './EmbeddedMap';
 
 class AddressInput extends Component {
   constructor(props) {
@@ -28,12 +28,12 @@ class AddressInput extends Component {
         });
       } else if (evt.target.value === 'easy') {
         this.setState({
-          playType: 100,
+          playType: 150,
           demo: false,
         });
       } else {
         this.setState({
-          playType: 100,
+          playType: 150,
           demo: true,
         });
       }
@@ -121,9 +121,9 @@ class AddressInput extends Component {
         </form>
       </div>
     ) : (
-      <div>
+      <div id="game-screen">
         <StaticImage demo={this.state.demo} />
-        <EmbeddedMap />
+        {/* <EmbeddedMap /> */}
       </div>
     );
   }
