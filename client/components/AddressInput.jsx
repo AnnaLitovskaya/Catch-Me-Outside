@@ -116,7 +116,7 @@ class AddressInput extends Component {
             <label htmlFor="option-three">Demo</label>
           </div>
           <button className="big-button small" type="submit" onClick={onSubmit}>
-            Submit
+            Play
           </button>
         </form>
       </div>

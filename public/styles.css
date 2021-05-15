@@ -121,6 +121,15 @@ button.big-button.small:active::before {
   box-shadow: 0 0 0 2px var(--colorShadeB), 0 0.25em 0 0 var(--colorShadeB);
 }
 
+button.big-button.small.reset {
+  background: rgb(52, 143, 134);
+  border: 2px solid var(--colorShadeD);
+  font-size: 1.2rem;
+  color: #313133;
+  font-weight: 700;
+  margin-top: 10px;
+}
+
 /* // input-form --------------------------------------------------------------------------- */
 
 #input-form {
@@ -323,4 +332,9 @@ label + input[type='radio'] + label {
 .button:focus::after {
   animation: none;
   display: none;
+}
+
+#play-again {
+  margin-right: 10rem;
+  margin-top: 1.5rem;
 }

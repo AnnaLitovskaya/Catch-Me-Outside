@@ -12,14 +12,14 @@ class EmbeddedMap extends Component {
     };
   }
 
-  // componentDidUpdate(prevProps) {
-  //   if (prevProps.latitude !== this.props.latitude) {
-  //     this.setState({
-  //       lat: this.props.latitude,
-  //       lng: this.props.longitude,
-  //     });
-  //   }
-  // }
+  componentDidUpdate(prevProps) {
+    if (prevProps.latitude !== this.props.latitude) {
+      this.setState({
+        lat: this.props.latitude,
+        lng: this.props.longitude,
+      });
+    }
+  }
 
   componentDidMount() {
     this.setState({
@@ -29,13 +29,10 @@ class EmbeddedMap extends Component {
   }
 
   render() {
-    console.log(this.state);
-    const coords = this.state.lat
-      ? { lat: this.state.lat, lng: this.state.lng }
-      : {
-          lat: 40.854885,
-          lng: -88.081807,
-        };
+    const coords = {
+      lat: this.props.latitude,
+      lng: this.props.longitude,
+    };
     return (
       <div>
         {this.state.lat ? (

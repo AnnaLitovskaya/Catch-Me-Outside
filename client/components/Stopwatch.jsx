@@ -2,6 +2,7 @@ import React from 'react';
 // import StopwatchDisplay from './StopwatchDisplay.jsx';
 import ReactCountdownClock from 'react-countdown-clock';
 import FireworksComp from './Fireworks';
+import { Link } from 'react-router-dom';
 
 class Stopwatch extends React.Component {
   constructor(props) {
@@ -85,6 +86,11 @@ class Stopwatch extends React.Component {
           <div id="won-box">
             <img id="you-won" src="YouWon.png" />
             <FireworksComp />
+            <Link to="/">
+              <button id="play-again" className="big-button small reset">
+                Play Again!
+              </button>
+            </Link>
           </div>
         ) : (
           <div>
@@ -103,11 +109,7 @@ class Stopwatch extends React.Component {
             </div>
             {/* <button>STOP</button> */}
             <div className="wrap">
-              <button
-                id="smaller"
-                onClick={this.reset}
-                className="buttona button"
-              >
+              <button onClick={this.reset} className="big-button small reset">
                 NEW PHOTO
               </button>
             </div>
