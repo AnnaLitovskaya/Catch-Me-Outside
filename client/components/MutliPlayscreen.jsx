@@ -2,8 +2,8 @@ import React, { Component } from 'react';
 import AddressInput from './AddressInput';
 import EmbeddedMap from './EmbeddedMap';
 
-const url = window.location.origin.replace('http', 'ws');
-const socket = new WebSocket(url);
+// const url = window.location.origin.replace('http', 'ws');
+// const socket = new WebSocket(url);
 
 class MultiPlayscreen extends Component {
   constructor() {
