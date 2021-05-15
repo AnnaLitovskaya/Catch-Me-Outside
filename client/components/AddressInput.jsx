@@ -12,7 +12,7 @@ class AddressInput extends Component {
       wholeAddress: '',
       address: '',
       city: '',
-      playType: 500,
+      playType: 250,
       demo: false,
     };
     this.onSubmit = this.onSubmit.bind(this);
@@ -23,17 +23,17 @@ class AddressInput extends Component {
     if (evt.target.name === 'playType') {
       if (evt.target.value === 'normal') {
         this.setState({
-          playType: 500,
+          playType: 250,
           demo: false,
         });
       } else if (evt.target.value === 'easy') {
         this.setState({
-          playType: 250,
+          playType: 100,
           demo: false,
         });
       } else {
         this.setState({
-          playType: 250,
+          playType: 100,
           demo: true,
         });
       }
@@ -71,7 +71,7 @@ class AddressInput extends Component {
               type="text"
               name="address"
               value={address}
-              placeholder="    Address"
+              placeholder="Address"
               onChange={onChange}
               id="outlined-basic"
               // label="    Street Address"
@@ -81,39 +81,41 @@ class AddressInput extends Component {
               type="text"
               name="city"
               value={city}
-              placeholder="   City"
+              placeholder="City"
               onChange={onChange}
               id="outlined-basic"
               // label="    City"
               variant="outlined"
             />
           </div>
-          <div>
+
+          <div className="radio-group">
             <input
+              id="option-one"
               type="radio"
               value="easy"
               name="playType"
               onChange={onChange}
             />
-            Easy
+            <label htmlFor="option-one">Easy</label>
             <input
-              required
+              id="option-two"
               type="radio"
               value="normal"
               name="playType"
               onChange={onChange}
             />
-            Normal
+            <label htmlFor="option-two">Normal</label>
             <input
-              required
+              id="option-three"
               type="radio"
               value="demo"
               name="playType"
               onChange={onChange}
             />
-            Demo
+            <label htmlFor="option-three">Demo</label>
           </div>
-          <button type="submit" onClick={onSubmit}>
+          <button className="big-button small" type="submit" onClick={onSubmit}>
             Submit
           </button>
         </form>

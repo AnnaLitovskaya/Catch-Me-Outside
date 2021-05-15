@@ -35,14 +35,11 @@ class EmbeddedMap extends Component {
             initialCenter={coords}
             google={this.props.google}
             style={{ width: 500, height: 500, position: 'relative' }}
-            zoom={15}
+            zoom={16}
           >
             <Circle
               radius={this.props.radius}
               center={coords}
-              // onMouseover={() => console.log('mouseover')}
-              // onClick={() => console.log('click')}
-              // onMouseout={() => console.log('mouseout')}
               strokeColor="transparent"
               strokeOpacity={0}
               strokeWeight={5}
