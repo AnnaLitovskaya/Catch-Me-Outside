@@ -1,5 +1,6 @@
 import React from 'react';
-import StopwatchDisplay from './StopwatchDisplay.jsx';
+// import StopwatchDisplay from './StopwatchDisplay.jsx';
+import ReactCountdownClock from 'react-countdown-clock';
 
 class Stopwatch extends React.Component {
   constructor(props) {
@@ -7,55 +8,70 @@ class Stopwatch extends React.Component {
 
     this.state = {
       running: false,
-      currentTimeMs: 0,
-      currentTimeSec: 0,
-      currentTimeMin: 0,
+      // currentTimeMs: 0,
+      // currentTimeSec: 0,
+      // currentTimeMin: 0,
     };
+
+    this.reset = this.reset.bind(this);
+    this.stop = this.stop.bind(this);
   }
 
-  formatTime = (val, ...rest) => {
-    let value = val.toString();
-    if (value.length < 2) {
-      value = '0' + value;
-    }
-    if (rest[0] === 'ms' && value.length < 3) {
-      value = '0' + value;
-    }
-    return value;
-  };
+  // formatTime = (val, ...rest) => {
+  //   let value = val.toString();
+  //   if (value.length < 2) {
+  //     value = '0' + value;
+  //   }
+  //   if (rest[0] === 'ms' && value.length < 3) {
+  //     value = '0' + value;
+  //   }
+  //   return value;
+  // };
 
-  start = () => {
-    if (!this.state.running) {
-      this.setState({ running: true });
-      this.watch = setInterval(() => this.pace(), 10);
-    }
-  };
+  // start = () => {
+  //   if (!this.state.running) {
+  //     this.setState({ running: true });
+  //     this.watch = setInterval(() => this.pace(), 10);
+  //   }
+  // };
 
-  stop = () => {
-    this.setState({ running: false });
-    clearInterval(this.watch);
-  };
+  // stop = () => {
+  //   this.setState({ running: false });
+  //   clearInterval(this.watch);
+  // };
 
-  pace = () => {
-    this.setState({ currentTimeMs: this.state.currentTimeMs + 10 });
-    if (this.state.currentTimeMs >= 1000) {
-      this.setState({ currentTimeSec: this.state.currentTimeSec + 1 });
-      this.setState({ currentTimeMs: 0 });
-    }
-    if (this.state.currentTimeSec >= 60) {
-      this.setState({ currentTimeMin: this.state.currentTimeMin + 1 });
-      this.setState({ currentTimeSec: 0 });
-    }
-  };
+  // pace = () => {
+  //   this.setState({ currentTimeMs: this.state.currentTimeMs + 10 });
+  //   if (this.state.currentTimeMs >= 1000) {
+  //     this.setState({ currentTimeSec: this.state.currentTimeSec + 1 });
+  //     this.setState({ currentTimeMs: 0 });
+  //   }
+  //   if (this.state.currentTimeSec >= 60) {
+  //     this.setState({ currentTimeMin: this.state.currentTimeMin + 1 });
+  //     this.setState({ currentTimeSec: 0 });
+  //   }
+  // };
 
-  reset = () => {
+  // reset = () => {
+  //   this.props.reRender();
+  //   this.setState({
+  //     currentTimeMs: 0,
+  //     currentTimeSec: 0,
+  //     currentTimeMin: 0,
+  //   });
+  // };
+
+  start() {
+    this.setState({ running: true });
+  }
+
+  reset() {
     this.props.reRender();
-    this.setState({
-      currentTimeMs: 0,
-      currentTimeSec: 0,
-      currentTimeMin: 0,
-    });
-  };
+  }
+
+  stop() {
+    this.setState({ running: false });
+  }
 
   componentDidMount() {
     this.start();
@@ -63,20 +79,27 @@ class Stopwatch extends React.Component {
 
   render() {
     return (
-      <div className={'stopwatch'}>
-        {!this.state.running && <h1>You Win!</h1>}
-        {this.state.running === false && (
-          <button onClick={this.start}>START</button>
+      <div className="stopwatch">
+        {!this.state.running ? (
+          <h1>You Win!</h1>
+        ) : (
+          <div>
+            <ReactCountdownClock
+              seconds={300}
+              color="rgb(106, 163, 137)"
+              alpha={0.9}
+              size={100}
+              onComplete={this.start}
+            />
+            <button onClick={this.stop}>STOP</button>
+            <button onClick={this.reset}>NEW PHOTO</button>
+            {/* <StopwatchDisplay
+              ref="display"
+              {...this.state}
+              formatTime={this.formatTime}
+            /> */}
+          </div>
         )}
-        {this.state.running === true && (
-          <button onClick={this.stop}>STOP</button>
-        )}
-        <button onClick={this.reset}>NEW PHOTO</button>
-        <StopwatchDisplay
-          ref="display"
-          {...this.state}
-          formatTime={this.formatTime}
-        />
       </div>
     );
   }
