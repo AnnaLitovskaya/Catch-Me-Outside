@@ -1,4 +1,4 @@
-# Catch-Me-Outside
+# GeoSnap
 
 - Google Maps Geocoding
 - google-maps-react
