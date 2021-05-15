@@ -17,7 +17,7 @@ class StaticImage extends React.Component {
   render() {
     const newCoords = randomCirclePoint(
       { latitude: this.props.lat, longitude: this.props.lng },
-      250
+      this.props.radius
     );
     const randomHeading = Math.floor(Math.random() * 360);
     const { reRender } = this;

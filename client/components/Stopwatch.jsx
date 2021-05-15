@@ -85,6 +85,7 @@ class Stopwatch extends React.Component {
         ) : (
           <div>
             <ReactCountdownClock
+              id="timer"
               seconds={300}
               color="rgb(106, 163, 137)"
               alpha={0.9}

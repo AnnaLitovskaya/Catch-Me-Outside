@@ -192,58 +192,53 @@ label + input[type='radio'] + label {
 /* // game page ---------------------------------------------------------------------------- */
 
 #game-screen {
-  /* display: flex;
-  flex-direction: row;
-  justify-content: center; */
   border: 5px solid rgb(106, 163, 137);
   border-radius: 50px;
   box-shadow: 0 0 0 2px var(--colorShadeB), 0 0.5em 0 0 var(--colorShadeC);
   transform: translate3d(0, 0.5em, -1em);
   position: fixed;
-  width: 80%;
-  height: 80%;
-  left: 8%;
-  top: 8%;
+  width: 90%;
+  height: 85%;
+  left: 5%;
+  top: 5%;
   background-color: rgba(246, 241, 209, 0.9);
 }
 
 #game-board {
   display: flex;
   flex-direction: column;
-  padding-left: 2rem;
+  /* padding-left: 2rem; */
   padding-top: 1rem;
   margin-bottom: 0.5rem;
-  /* align-items: center; */
 }
 
 #static {
   position: absolute;
   top: 18%;
-  right: 52%;
+  right: 53%;
   border: 5px solid rgb(106, 163, 137);
   border-radius: 10px;
-  /* box-shadow: 0 0 0 2px var(--colorShadeB), 0 0.5em 0 0 var(--colorShadeC); */
-  /* transform: translate3d(0, 0.5em, -1em); */
 }
 
 #maps > div:nth-child(2) > div > div:nth-child(1) > div {
   position: absolute;
-  left: 52%;
+  left: 53%;
   top: 18%;
-  /* border: 5px solid rgb(106, 163, 137);
-  border-radius: 10px;
-  box-shadow: 0 0 0 2px var(--colorShadeB), 0 0.5em 0 0 var(--colorShadeC);
-  transform: translate3d(0, 0.5em, -1em); */
 }
 
 #maps > div:nth-child(2) > div > div:nth-child(1) > div > div {
   border: 5px solid rgb(106, 163, 137);
   border-radius: 10px;
-  /* box-shadow: 0 0 0 2px var(--colorShadeB), 0 0.5em 0 0 var(--colorShadeC); */
-  /* transform: translate3d(0, 0.5em, -1em); */
 }
 
 #watch-container > div > div {
   display: flex;
   flex-direction: row;
+  justify-content: space-between;
+  margin-left: 8%;
+  margin-right: 8%;
+}
+
+#timer {
+  flex-grow: 2;
 }
