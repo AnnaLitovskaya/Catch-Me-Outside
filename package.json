@@ -1,5 +1,5 @@
 {
-  "name": "catch-me-outside",
+  "name": "geosnap",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -12,15 +12,15 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/AnnaLitovskaya/Catch-Me-Outside.git"
+    "url": "git+https://github.com/AnnaLitovskaya/GeoSnap.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/AnnaLitovskaya/Catch-Me-Outside/issues"
+    "url": "https://github.com/AnnaLitovskaya/GeoSnap/issues"
   },
-  "homepage": "https://github.com/AnnaLitovskaya/Catch-Me-Outside#readme",
+  "homepage": "https://github.com/AnnaLitovskaya/GeoSnap#readme",
   "dependencies": {
     "@material-ui/core": "^4.11.4",
     "express": "^4.17.1",
